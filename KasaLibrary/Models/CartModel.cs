@@ -8,12 +8,28 @@ namespace KasaLibrary.Models
 {
     public class CartModel
     {
-        public List<ProductModel> ProductsInside { get; set; }
+        public List<CartElementModel> ProductsInside { get; set; }
         public int Status { get; set; }
-
-        public void Add(ProductModel product)
+        public float TotatPrice
         {
-            ProductsInside.Add(product);
+            get
+            {
+                return ProductsInside.Sum(element => element.Product.Price * element.Quantity);
+            }
+        }
+
+        public CartModel() 
+        {
+            ProductsInside = new List<CartElementModel>();
+            Status = 0;
+        }
+
+        public string ProductsInsideInfo
+        {
+            get
+            {
+                return $"{ ProductsInside } ";
+            }
         }
     }
 }

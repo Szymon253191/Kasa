@@ -52,6 +52,7 @@
     <Compile Include="DataAccess\JsonConnector.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="GlobalConfig.cs" />
+    <Compile Include="Models\CartElementModel.cs" />
     <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

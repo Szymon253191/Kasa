@@ -57,14 +57,16 @@
             // 
             // KoszykListBox
             // 
+            this.KoszykListBox.ColumnWidth = 450;
             this.KoszykListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.KoszykListBox.FormattingEnabled = true;
-            this.KoszykListBox.HorizontalScrollbar = true;
+            this.KoszykListBox.HorizontalScrollbar = false;
             this.KoszykListBox.ItemHeight = 24;
+            this.KoszykListBox.Items.AddRange(new object[] {
+            "Tu pojawią się twoje produkty..."});
             this.KoszykListBox.Location = new System.Drawing.Point(869, 70);
-            this.KoszykListBox.MultiColumn = true;
+            this.KoszykListBox.MultiColumn = false;
             this.KoszykListBox.Name = "KoszykListBox";
-            this.KoszykListBox.Size = new System.Drawing.Size(324, 436);
+            this.KoszykListBox.Size = new System.Drawing.Size(324, 412);
             this.KoszykListBox.TabIndex = 2;
             // 
             // PlusCartButton
@@ -78,6 +80,7 @@
             this.PlusCartButton.TabIndex = 3;
             this.PlusCartButton.Text = "+";
             this.PlusCartButton.UseVisualStyleBackColor = false;
+            this.PlusCartButton.Click += new System.EventHandler(this.PlusCartButton_Click);
             // 
             // MinusCartButton
             // 
