@@ -1,0 +1,152 @@
+﻿[
+  {
+    "id": 1,
+    "name": "Pocztowka1",
+    "price": 2.00
+  },
+  {
+    "id": 2,
+    "name": "Ksiazka2",
+    "price": 12.00
+  },
+  {
+    "id": 3,
+    "name": "Kubek",
+    "price": 21.00
+  },
+  {
+    "id": 4,
+    "name": "Zakladka4",
+    "price": 2.00
+  },
+  {
+    "id": 5,
+    "name": "Pocztowka5",
+    "price": 2.00
+  },
+  {
+    "id": 6,
+    "name": "Pocztowka6",
+    "price": 2.00
+  },
+  {
+    "id": 7,
+    "name": "Ksiazka7",
+    "price": 12.00
+  },
+  {
+    "id": 8,
+    "name": "Kubek8",
+    "price": 21.00
+  },
+  {
+    "id": 9,
+    "name": "Zakladka9",
+    "price": 2.00
+  },
+  {
+    "id": 10,
+    "name": "Pocztowka10",
+    "price": 2.00
+  },
+  {
+    "id": 11,
+    "name": "Ksiazka11",
+    "price": 15.00
+  },
+  {
+    "id": 12,
+    "name": "Kubek12",
+    "price": 25.00
+  },
+  {
+    "id": 13,
+    "name": "Zakladka13",
+    "price": 2.00
+  },
+  {
+    "id": 14,
+    "name": "Pocztowka14",
+    "price": 3.00
+  },
+  {
+    "id": 15,
+    "name": "Ksiazka15",
+    "price": 20.00
+  },
+  {
+    "id": 16,
+    "name": "Kubek16",
+    "price": 18.00
+  },
+  {
+    "id": 17,
+    "name": "Zakladka17",
+    "price": 1.50
+  },
+  {
+    "id": 18,
+    "name": "Pocztowka18",
+    "price": 2.50
+  },
+  {
+    "id": 19,
+    "name": "Ksiazka19",
+    "price": 28.00
+  },
+  {
+    "id": 20,
+    "name": "Kubek20",
+    "price": 22.00
+  },
+  {
+    "id": 21,
+    "name": "Zakladka21",
+    "price": 2.00
+  },
+  {
+    "id": 22,
+    "name": "Pocztowka22",
+    "price": 4.00
+  },
+  {
+    "id": 23,
+    "name": "Ksiazka23",
+    "price": 30.00
+  },
+  {
+    "id": 24,
+    "name": "Kubek24",
+    "price": 26.00
+  },
+  {
+    "id": 25,
+    "name": "Zakladka25",
+    "price": 1.00
+  },
+  {
+    "id": 26,
+    "name": "Pocztowka26",
+    "price": 2.00
+  },
+  {
+    "id": 27,
+    "name": "Ksiazka27",
+    "price": 35.00
+  },
+  {
+    "id": 28,
+    "name": "Kubek28",
+    "price": 30.00
+  },
+  {
+    "id": 29,
+    "name": "Zakladka29",
+    "price": 1.50
+  },
+  {
+    "id": 30,
+    "name": "Pocztowka30",
+    "price": 2.50
+  }
+]

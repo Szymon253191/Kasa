@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KasaLibrary", "KasaLibrary\KasaLibrary.csproj", "{C6899821-A3C0-4778-8E6B-815B7D2E88AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KasaUI", "KasaUI\KasaUI.csproj", "{1F40CE9E-2A39-4DCB-905C-2A6F6DE8839F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6899821-A3C0-4778-8E6B-815B7D2E88AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6899821-A3C0-4778-8E6B-815B7D2E88AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6899821-A3C0-4778-8E6B-815B7D2E88AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6899821-A3C0-4778-8E6B-815B7D2E88AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F40CE9E-2A39-4DCB-905C-2A6F6DE8839F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F40CE9E-2A39-4DCB-905C-2A6F6DE8839F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F40CE9E-2A39-4DCB-905C-2A6F6DE8839F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F40CE9E-2A39-4DCB-905C-2A6F6DE8839F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9594B8D-70C5-4292-BBDE-7BA351B3741C}
+	EndGlobalSection
+EndGlobal
