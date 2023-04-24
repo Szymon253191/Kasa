@@ -9,7 +9,6 @@ namespace KasaLibrary.Models
     public class CartModel
     {
         public List<CartElementModel> ProductsInside { get; set; }
-        public int Status { get; set; }
         public float TotatPrice
         {
             get
@@ -21,14 +20,26 @@ namespace KasaLibrary.Models
         public CartModel() 
         {
             ProductsInside = new List<CartElementModel>();
-            Status = 0;
         }
 
-        public string ProductsInsideInfo
+        public string DisplayProductName
         {
             get
             {
-                return $"{ ProductsInside } ";
+                return ProductsInside.First().NameQuantityPrice.ToString();
+            }
+        }
+
+        public List<string> ProductsInsideInfo
+        {
+            get
+            {
+                List<string> output = new List<string>();
+                foreach (var item in ProductsInside)
+                {
+                    output.Add(item.Product.Name+" "+item.Quantity+" szt. "+(item.Product.Price*item.Quantity).ToString("C"));
+                }
+                return output;
             }
         }
     }

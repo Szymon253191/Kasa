@@ -13,11 +13,11 @@ namespace KasaLibrary.Models
 
         public int Quantity { get; set; }
 
-        public string NameAndQuantity
+        public string NameQuantityPrice
         {
             get
             {
-                return $"{ Product.Name } { Quantity }";
+                return $"{Product.Name,-10} {Quantity} szt. {(Product.Price * Quantity).ToString("C") }";
             }
         }
     }

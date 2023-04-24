@@ -59,12 +59,10 @@
             // 
             this.KoszykListBox.ColumnWidth = 450;
             this.KoszykListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.KoszykListBox.HorizontalScrollbar = false;
             this.KoszykListBox.ItemHeight = 24;
             this.KoszykListBox.Items.AddRange(new object[] {
             "Tu pojawią się twoje produkty..."});
             this.KoszykListBox.Location = new System.Drawing.Point(869, 70);
-            this.KoszykListBox.MultiColumn = false;
             this.KoszykListBox.Name = "KoszykListBox";
             this.KoszykListBox.Size = new System.Drawing.Size(324, 412);
             this.KoszykListBox.TabIndex = 2;
@@ -93,6 +91,7 @@
             this.MinusCartButton.TabIndex = 4;
             this.MinusCartButton.Text = "-";
             this.MinusCartButton.UseVisualStyleBackColor = false;
+            this.MinusCartButton.Click += new System.EventHandler(this.MinusCartButton_Click);
             // 
             // DeleteCartButton
             // 
@@ -105,6 +104,7 @@
             this.DeleteCartButton.TabIndex = 5;
             this.DeleteCartButton.Text = "Usuń";
             this.DeleteCartButton.UseVisualStyleBackColor = false;
+            this.DeleteCartButton.Click += new System.EventHandler(this.DeleteCartButton_Click);
             // 
             // CompleteCartButton
             // 
@@ -117,6 +117,7 @@
             this.CompleteCartButton.TabIndex = 6;
             this.CompleteCartButton.Text = "Potwierdź";
             this.CompleteCartButton.UseVisualStyleBackColor = false;
+            this.CompleteCartButton.Click += new System.EventHandler(this.CompleteCartButton_Click);
             // 
             // KasaPanel
             // 

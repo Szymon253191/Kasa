@@ -22,9 +22,8 @@ namespace KasaUI
     
     public partial class KasaPanel : Form
     {
-        readonly string cartDetails = "{0, -15}{0,-5}{0,-8}";
         readonly List<ProductModel> products = GlobalConfig.Connection.CreateProducts();
-        readonly CartModel cart = new CartModel();
+        CartModel cart = new CartModel();
 
         public KasaPanel()
         {
@@ -35,37 +34,10 @@ namespace KasaUI
 
         private void UpdateListBox()
         {
-            // TODO Change print method to using KoszykListBox.DataSource. It help with selected item later on
-
-            KoszykListBox.Items.Clear();
-
-            // Loop through the cart elements and add each item to the ListBox
-            foreach (CartElementModel element in cart.ProductsInside)
-            {
-                string itemName = element.Product.Name;
-                int itemQuantity = element.Quantity;
-
-                // Format the item name and quantity as a string and add it to the ListBox
-                string itemText = $"{itemName,-20} {itemQuantity} szt. {(element.Product.Price * itemQuantity).ToString("C")}";
-                KoszykListBox.Items.Add(itemText);
-            }
+            KoszykListBox.DataSource = cart.ProductsInside.ToList();
+            KoszykListBox.DisplayMember = "NameQuantityPrice";
 
             KoszykLabel.Text = $"KOSZYK - {(cart.TotatPrice).ToString("C")}";
-        }
-
-        private void UpdateListBoxTest()
-        {
-            // TODO creation solution that no clears listbox.
-            // It causes listbox to reset position after update and user need to scroll again to end
-
-            KoszykListBox.Items.Clear();
-            foreach (CartElementModel element in cart.ProductsInside)
-            {
-                string itemName = element.Product.Name;
-                int itemQuantity = element.Quantity;
-
-                KoszykListBox.Items.Add(string.Format(cartDetails, itemName, itemQuantity, (element.Product.Price * itemQuantity).ToString("C")));
-            }
         }
 
         private void AddButtons(List<ProductModel> products)
@@ -79,25 +51,16 @@ namespace KasaUI
                 btn.Size = new Size(200, 100);
                 btn.Location = new Point(40, 40);
                 ProductsPanel.Controls.Add(btn);
-                Console.WriteLine(btn.Name);
                 btn.Click += new EventHandler(Btn_Click);
             }
         }      
         
         private void Btn_Click(object sender, EventArgs e)
         {
-            // TODO add functionality to buttons
-            // sender.Name = product.Id
-            // Add product.Where(x => x.Id == sender.Name) to listBox
-            // WireUpList() to be Updated after every click
-
             Button cb = (Button)sender;
             string strName = cb.Name;
             Console.WriteLine(strName);
             int numId = Int16.Parse(strName);
-
-            if (CheckIfCartIs(cart))
-                Console.WriteLine("THERE IS A CART");
 
             AddToCart(cart, products, numId);
 
@@ -109,14 +72,6 @@ namespace KasaUI
             ProductModel product = null;
             product = p.Where(x => x.Id == id).FirstOrDefault();
             return product;
-        }
-
-        private bool CheckIfCartIs(CartModel cart)
-        {
-            if (cart == null)
-                return false;
-            else
-                return true;
         }
 
         private CartModel AddToCart(CartModel cart, List<ProductModel> products, int id)
@@ -155,32 +110,132 @@ namespace KasaUI
             return false;
         }
 
-        private void PlusCartButton_Click(object sender, EventArgs e)
+        private void IncrementItem(CartModel cart, ProductModel product)
         {
-            if(KoszykListBox.SelectedItem == null)
-            {
-                return;
-            }
-
-            string productId =  KoszykListBox.SelectedItem.GetType().ToString();
-            int numId = int.Parse(productId);
-
-            if (productId == null) 
-            {
-                MessageBox.Show("Nie można dodać produktu.");
-                return;
-            }
-
             foreach (CartElementModel ce in cart.ProductsInside)
             {
-                if (ce.Product.Id == numId)
+                if (ce.Product.Id == product.Id)
                 {
                     ce.Quantity += 1;
+                    UpdateListBox();
                     return;
                 }
-                
+            }
+        } 
+        
+        private void DecrementItem(CartModel cart, ProductModel product)
+        {
+            foreach (CartElementModel ce in cart.ProductsInside)
+            {
+                if (ce.Product.Id == product.Id)
+                {
+                    ce.Quantity -= 1;
+                    UpdateListBox();
+                    return;
+                }
+            }
+        }
+
+        private void RemoveItem(CartModel cart, ProductModel product)
+        {
+            foreach (CartElementModel ce in cart.ProductsInside)
+            {
+                if (ce.Product.Id == product.Id)
+                {
+                    cart.ProductsInside.Remove(ce);
+                    UpdateListBox();
+                    return;
+                }
+            }
+        }
+
+        private void SetSelectedListBox(CartElementModel element)
+        {
+            int index = KoszykListBox.Items.IndexOf(element);
+            if (index >= 0)
+                KoszykListBox.SetSelected(index, true);
+        }
+
+        private void PlusCartButton_Click(object sender, EventArgs e)
+        {
+            if (KoszykListBox.SelectedItem == null)
+            {
+                return;
             }
 
+            CartElementModel selectedCartItem = (CartElementModel)KoszykListBox.SelectedItem;
+            ProductModel selectedProduct = selectedCartItem.Product;
+
+            IncrementItem(cart, selectedProduct);
+            SetSelectedListBox(selectedCartItem);
+
+        }
+
+        private void MinusCartButton_Click(object sender, EventArgs e)
+        {
+            if (KoszykListBox.SelectedItem == null)
+            {
+                return;
+            }
+
+            CartElementModel selectedCartItem = (CartElementModel)KoszykListBox.SelectedItem;
+            ProductModel selectedProduct = selectedCartItem.Product;
+
+            if (selectedCartItem.Quantity <= 1)
+            {
+                DialogResult result = MessageBox.Show("Czy chcesz usunąć przedmiot?", "Koszyk", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                    return;
+                else if (result == DialogResult.Yes)
+                {
+                    RemoveItem(cart, selectedProduct);
+                }
+            }
+            DecrementItem(cart, selectedProduct);
+            SetSelectedListBox(selectedCartItem);
+        }
+
+        private void DeleteCartButton_Click(object sender, EventArgs e)
+        {
+            if (KoszykListBox.SelectedItem == null)
+            {
+                return;
+            }
+
+            CartElementModel selectedCartItem = (CartElementModel)KoszykListBox.SelectedItem;
+            ProductModel selectedProduct = selectedCartItem.Product;
+
+            RemoveItem(cart, selectedProduct);
+        }
+
+        private void CompleteCartButton_Click(object sender, EventArgs e)
+        {
+            if (KoszykListBox.Items.Count == 0)
+            {
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Czy chcesz potwierdzić zakup?", "Koszyk", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+                return;
+            else if (result == DialogResult.Yes)
+            {
+                MessageBox.Show($"Dziękuję za zakup! Koszt: { cart.TotatPrice.ToString("C") }.", "Koszyk");
+                string output = CartSummary(cart);
+                Console.WriteLine(output);
+                cart = new CartModel();
+                UpdateListBox();
+            }
+        }
+
+        private string CartSummary(CartModel cart)
+        {
+            string output = string.Empty;
+            foreach (CartElementModel element in cart.ProductsInside)
+            {
+                output += "Id: " + element.Product.Id + ", quantity:" + element.Quantity + ";";
+            }
+            return output;
         }
     }
 }
