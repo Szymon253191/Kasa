@@ -1,6 +1,6 @@
-﻿namespace KasaUI
+﻿namespace CashUI
 {
-    partial class KasaPanel
+    partial class CashPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.ProductsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.KoszykLabel = new System.Windows.Forms.Label();
-            this.KoszykListBox = new System.Windows.Forms.ListBox();
+            this.CartLabel = new System.Windows.Forms.Label();
+            this.CartListBox = new System.Windows.Forms.ListBox();
             this.PlusCartButton = new System.Windows.Forms.Button();
             this.MinusCartButton = new System.Windows.Forms.Button();
             this.DeleteCartButton = new System.Windows.Forms.Button();
@@ -45,27 +45,27 @@
             this.ProductsPanel.Size = new System.Drawing.Size(854, 665);
             this.ProductsPanel.TabIndex = 0;
             // 
-            // KoszykLabel
+            // CartLabel
             // 
-            this.KoszykLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.KoszykLabel.Location = new System.Drawing.Point(864, 9);
-            this.KoszykLabel.Name = "KoszykLabel";
-            this.KoszykLabel.Size = new System.Drawing.Size(330, 54);
-            this.KoszykLabel.TabIndex = 1;
-            this.KoszykLabel.Text = "KOSZYK";
-            this.KoszykLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CartLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CartLabel.Location = new System.Drawing.Point(864, 9);
+            this.CartLabel.Name = "CartLabel";
+            this.CartLabel.Size = new System.Drawing.Size(330, 54);
+            this.CartLabel.TabIndex = 1;
+            this.CartLabel.Text = "KOSZYK";
+            this.CartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // KoszykListBox
+            // CartListBox
             // 
-            this.KoszykListBox.ColumnWidth = 450;
-            this.KoszykListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.KoszykListBox.ItemHeight = 24;
-            this.KoszykListBox.Items.AddRange(new object[] {
+            this.CartListBox.ColumnWidth = 450;
+            this.CartListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CartListBox.ItemHeight = 24;
+            this.CartListBox.Items.AddRange(new object[] {
             "Tu pojawią się twoje produkty..."});
-            this.KoszykListBox.Location = new System.Drawing.Point(869, 70);
-            this.KoszykListBox.Name = "KoszykListBox";
-            this.KoszykListBox.Size = new System.Drawing.Size(324, 412);
-            this.KoszykListBox.TabIndex = 2;
+            this.CartListBox.Location = new System.Drawing.Point(869, 70);
+            this.CartListBox.Name = "CartListBox";
+            this.CartListBox.Size = new System.Drawing.Size(324, 412);
+            this.CartListBox.TabIndex = 2;
             // 
             // PlusCartButton
             // 
@@ -129,8 +129,8 @@
             this.Controls.Add(this.DeleteCartButton);
             this.Controls.Add(this.MinusCartButton);
             this.Controls.Add(this.PlusCartButton);
-            this.Controls.Add(this.KoszykListBox);
-            this.Controls.Add(this.KoszykLabel);
+            this.Controls.Add(this.CartListBox);
+            this.Controls.Add(this.CartLabel);
             this.Controls.Add(this.ProductsPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "KasaPanel";
@@ -142,8 +142,8 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel ProductsPanel;
-        private System.Windows.Forms.Label KoszykLabel;
-        private System.Windows.Forms.ListBox KoszykListBox;
+        private System.Windows.Forms.Label CartLabel;
+        private System.Windows.Forms.ListBox CartListBox;
         private System.Windows.Forms.Button PlusCartButton;
         private System.Windows.Forms.Button MinusCartButton;
         private System.Windows.Forms.Button DeleteCartButton;

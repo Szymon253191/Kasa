@@ -1,0 +1,10 @@
+C:\Users\Szymon\GitProjects\KasaProgram\Kasa\KasaLibrary\bin\Debug\KasaLibrary.dll
+C:\Users\Szymon\GitProjects\KasaProgram\Kasa\KasaLibrary\bin\Debug\KasaLibrary.pdb
+C:\Users\Szymon\GitProjects\KasaProgram\Kasa\KasaLibrary\bin\Debug\Json.Net.dll
+C:\Users\Szymon\GitProjects\KasaProgram\Kasa\KasaLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Szymon\GitProjects\KasaProgram\Kasa\KasaLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Szymon\GitProjects\KasaProgram\Kasa\KasaLibrary\obj\Debug\CashLibrary.csproj.AssemblyReference.cache
+C:\Users\Szymon\GitProjects\KasaProgram\Kasa\KasaLibrary\obj\Debug\CashLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Szymon\GitProjects\KasaProgram\Kasa\KasaLibrary\obj\Debug\CashLibrary.csproj.CopyComplete
+C:\Users\Szymon\GitProjects\KasaProgram\Kasa\KasaLibrary\obj\Debug\KasaLibrary.dll
+C:\Users\Szymon\GitProjects\KasaProgram\Kasa\KasaLibrary\obj\Debug\KasaLibrary.pdb

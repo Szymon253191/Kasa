@@ -50,16 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KasaPanel.cs">
+    <Compile Include="CashPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KasaPanel.Designer.cs">
-      <DependentUpon>KasaPanel.cs</DependentUpon>
+    <Compile Include="CashPanel.Designer.cs">
+      <DependentUpon>CashPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="KasaPanel.resx">
-      <DependentUpon>KasaPanel.cs</DependentUpon>
+    <EmbeddedResource Include="CashPanel.resx">
+      <DependentUpon>CashPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -85,9 +85,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KasaLibrary\KasaLibrary.csproj">
+    <ProjectReference Include="..\KasaLibrary\CashLibrary.csproj">
       <Project>{C6899821-A3C0-4778-8E6B-815B7D2E88AC}</Project>
-      <Name>KasaLibrary</Name>
+      <Name>CashLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

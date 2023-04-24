@@ -1,14 +1,11 @@
-﻿using KasaLibrary.Models;
+﻿using CashLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Configuration;
 
-namespace KasaLibrary.DataAccess
+namespace CashLibrary.DataAccess
 {
     public class JsonConnector : IDataConnection
     {

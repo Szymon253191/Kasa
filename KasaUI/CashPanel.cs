@@ -1,44 +1,31 @@
-﻿using KasaLibrary;
-using KasaLibrary.DataAccess;
-using KasaLibrary.Models;
-using Microsoft.Build.Framework;
-using Microsoft.SqlServer.Server;
+﻿using CashLibrary;
+using CashLibrary.Models;
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
-namespace KasaUI
-{    
-    public partial class KasaPanel : Form
+namespace CashUI
+{
+    public partial class CashPanel : Form
     {
-        private readonly ILogger _logger;
         readonly List<ProductModel> products = GlobalConfig.Connection.CreateProducts();
         CartModel cart = new CartModel();
 
-        public KasaPanel(ILogger<KasaPanel> logger)
+        public CashPanel()
         {
-            _logger = logger;
             InitializeComponent();
             AddButtons(products);
         }
 
         private void UpdateListBox()
         {
-            KoszykListBox.DataSource = cart.ProductsInside.ToList();
-            KoszykListBox.DisplayMember = "NameQuantityPrice";
+            CartListBox.DataSource = cart.ProductsInside.ToList();
+            CartListBox.DisplayMember = "NameQuantityPrice";
 
-            KoszykLabel.Text = $"KOSZYK - {cart.TotatPrice:C}";
+            CartLabel.Text = $"KOSZYK - {cart.TotatPrice:C}";
         }
 
         private void AddButtons(List<ProductModel> products)
@@ -72,12 +59,12 @@ namespace KasaUI
 
         private void PlusCartButton_Click(object sender, EventArgs e)
         {
-            if (KoszykListBox.SelectedItem == null)
+            if (CartListBox.SelectedItem == null)
             {
                 return;
             }
 
-            CartElementModel selectedCartItem = (CartElementModel)KoszykListBox.SelectedItem;
+            CartElementModel selectedCartItem = (CartElementModel)CartListBox.SelectedItem;
             ProductModel selectedProduct = selectedCartItem.Product;
 
             IncrementItem(cart, selectedProduct);
@@ -87,12 +74,12 @@ namespace KasaUI
 
         private void MinusCartButton_Click(object sender, EventArgs e)
         {
-            if (KoszykListBox.SelectedItem == null)
+            if (CartListBox.SelectedItem == null)
             {
                 return;
             }
 
-            CartElementModel selectedCartItem = (CartElementModel)KoszykListBox.SelectedItem;
+            CartElementModel selectedCartItem = (CartElementModel)CartListBox.SelectedItem;
             ProductModel selectedProduct = selectedCartItem.Product;
 
             if (selectedCartItem.Quantity <= 1)
@@ -111,12 +98,12 @@ namespace KasaUI
 
         private void DeleteCartButton_Click(object sender, EventArgs e)
         {
-            if (KoszykListBox.SelectedItem == null)
+            if (CartListBox.SelectedItem == null)
             {
                 return;
             }
 
-            CartElementModel selectedCartItem = (CartElementModel)KoszykListBox.SelectedItem;
+            CartElementModel selectedCartItem = (CartElementModel)CartListBox.SelectedItem;
             ProductModel selectedProduct = selectedCartItem.Product;
 
             RemoveItem(cart, selectedProduct);
@@ -124,7 +111,7 @@ namespace KasaUI
 
         private void CompleteCartButton_Click(object sender, EventArgs e)
         {
-            if (KoszykListBox.Items.Count == 0)
+            if (CartListBox.Items.Count == 0)
             {
                 return;
             }
@@ -226,11 +213,10 @@ namespace KasaUI
 
         private void SetSelectedListBox(CartElementModel element)
         {
-            int index = KoszykListBox.Items.IndexOf(element);
+            int index = CartListBox.Items.IndexOf(element);
             if (index >= 0)
-                KoszykListBox.SetSelected(index, true);
+                CartListBox.SetSelected(index, true);
         }
-
 
         private string CartSummary(CartModel cart)
         {

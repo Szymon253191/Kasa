@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KasaUI.Properties
+namespace CashUI.Properties
 {
 
 

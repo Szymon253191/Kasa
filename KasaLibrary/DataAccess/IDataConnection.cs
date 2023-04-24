@@ -1,11 +1,11 @@
-﻿using KasaLibrary.Models;
+﻿using CashLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KasaLibrary.DataAccess
+namespace CashLibrary.DataAccess
 {
     public interface IDataConnection
     {
