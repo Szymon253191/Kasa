@@ -15,13 +15,21 @@ namespace KasaLibrary.DataAccess
         public List<ProductModel> CreateProducts()
         {
             List<ProductModel> products;
-            string path = ConfigurationManager.AppSettings["ProjectPath"] + "\\Data\\Baza.json";
+            string path = ConfigurationManager.AppSettings["DataFileFullPath"];
 
-            using (StreamReader r = new StreamReader(path))
+            try
             {
-                string json = r.ReadToEnd();
-                products = JsonConvert.DeserializeObject<List<ProductModel>>(json);
-                return products;
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    string json = reader.ReadToEnd();
+                    products = JsonConvert.DeserializeObject<List<ProductModel>>(json);
+                    return products;
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Błąd w pobieraniu danych");
+                throw;
             }
         }
     }

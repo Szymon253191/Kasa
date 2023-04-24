@@ -17,7 +17,7 @@ namespace KasaLibrary.Models
         {
             get
             {
-                return $"{Product.Name,-10} {Quantity} szt. {(Product.Price * Quantity).ToString("C") }";
+                return $"{Product.Name,-10} {Quantity} szt. {(Product.Price * Quantity).ToString("C")}";
             }
         }
     }
