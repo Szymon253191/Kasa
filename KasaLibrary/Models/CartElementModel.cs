@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KasaLibrary.Models
+﻿namespace CashLibrary.Models
 {
     public class CartElementModel
     {
@@ -17,7 +10,7 @@ namespace KasaLibrary.Models
         {
             get
             {
-                return $"{Product.Name,-10} {Quantity} szt. {(Product.Price * Quantity).ToString("C") }";
+                return $"{Product.Name,-10} {Quantity} szt. {(Product.Price * Quantity).ToString("C")}";
             }
         }
     }

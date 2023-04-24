@@ -1,27 +1,32 @@
-﻿using KasaLibrary.Models;
+﻿using CashLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Configuration;
 
-namespace KasaLibrary.DataAccess
+namespace CashLibrary.DataAccess
 {
     public class JsonConnector : IDataConnection
     {
         public List<ProductModel> CreateProducts()
         {
             List<ProductModel> products;
-            string path = ConfigurationManager.AppSettings["ProjectPath"] + "\\Data\\Baza.json";
+            string path = ConfigurationManager.AppSettings["DataFileFullPath"];
 
-            using (StreamReader r = new StreamReader(path))
+            try
             {
-                string json = r.ReadToEnd();
-                products = JsonConvert.DeserializeObject<List<ProductModel>>(json);
-                return products;
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    string json = reader.ReadToEnd();
+                    products = JsonConvert.DeserializeObject<List<ProductModel>>(json);
+                    return products;
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Błąd w pobieraniu danych");
+                throw;
             }
         }
     }

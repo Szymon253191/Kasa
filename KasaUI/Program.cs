@@ -1,11 +1,11 @@
-﻿using KasaLibrary;
+﻿using CashLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KasaUI
+namespace CashUI
 {
     internal static class Program
     {
@@ -20,7 +20,7 @@ namespace KasaUI
 
             GlobalConfig.InitializeConnections();
 
-            Application.Run(new KasaPanel());
+            Application.Run(new CashPanel());
         }
     }
 }

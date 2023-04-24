@@ -1,12 +1,6 @@
-﻿using KasaLibrary.DataAccess;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CashLibrary.DataAccess;
 
-namespace KasaLibrary
+namespace CashLibrary
 {
     public static class GlobalConfig
     {
